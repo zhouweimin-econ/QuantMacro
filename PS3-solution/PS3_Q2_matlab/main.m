@@ -21,10 +21,13 @@ cpl = [];
 R= 1.0057;  %Guess R*beta < 1 means R < 1.0101
 x0 = [0.5;.5;.5;.5;0.5; 0.5;0.5]; % Initial Guess
 %% 
+% for-loop to solve different interest rate to check total assets equal to
+% zero
+% inside this for-loop, for every interest rate 
 while  R>1.00 && R<1.30
 
     for i=1:length(eta1)
-        for j=1:length(y00)
+        for j=1:length(y00)  % correspond to Sarah's SYS.m, totalasset.m
         myfun1   = @(x) root1(x,y00(j),eta1(i),R);
         results1 = fsolve(myfun1,x0,options);
         C(i,j)   = results1(1,1);
@@ -55,6 +58,32 @@ end
 % Above codes takes 1 mins in my laptop, for a small dimension of
 % interest rate, takes me half hours, but does not clears the assets
 % markets.
+
+
+% Another way to do: 
+
+% choose asymmetric dist: 0; unitofm: 1; pareto: 2
+wd = 0;
+if wd ==0
+    y0 = linspace(0.001,0.009,n);
+    y0(y0>)
+elseif wd ==1;
+        % uniform
+        break
+else
+      %Pareto:  *ones()
+      break
+end
+
+options = optimset('fsolve','MaxFuncEvals',2000000,'TolX',1e-6,'MaxIter',50);
+
+global optch rev
+optch = nan(n,3,length(eta));
+rev = NaN(n,2,length(eta));
+
+
+
+
 %%  Below are the failed part of try, which takes me 2 days, and I don't want to delete them
 % use focs.m, which remain the origin focs, unlike root.m changes the expression. 
 %R = 1.0057;

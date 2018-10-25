@@ -1,4 +1,4 @@
-function F = root1(x,y0,eta,R)
+function F = root1(x,y0,eta,R) %Can do other way like Sarah: 3 equs 3 unknowns
 nu = 4;
 sigma = 3;
 kappa = 4; 
