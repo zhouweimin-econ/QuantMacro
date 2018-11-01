@@ -47,14 +47,14 @@ PS5 is our final project, I uploaded a first version on 1 Nov, 2018. Expected to
 #### Numerical Solution Methods
 - [Economic Growth: Theory and numerical solution methods, Novales, Alfonso, Fernández, Esther, Ruíz, Jesús, 2009](https://www.ucm.es/fundamentos-analisis-economico2/growth-textbook)
 
--[Numerical analysis notes for EC 702, BU, by Alisdair Mckay](http://people.bu.edu/amckay/EC702/index.html)
+- [Numerical analysis notes for EC 702, BU, by Alisdair Mckay](http://people.bu.edu/amckay/EC702/index.html)
 
-### Representative Agent Part
+#### Representative Agent Part
 
 - [Github repository of Applied Macroeconomics by Marcin Bielecki ](http://coin.wne.uw.edu.pl/mbielecki/index.php?show=LecturesApplied_Macroeconomics)
 
 
-### Heterogeneous Agent Part
+#### Heterogeneous Agent Part
 
 - [Methods and Applications in Quantitative Macroeconomics, Central European University by Katrin Rabitsch](https://sites.google.com/site/katrinrabitsch/teaching/quantmacro2012)
 
