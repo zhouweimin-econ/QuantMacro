@@ -10,7 +10,7 @@ Most of my work was on MATLAB, since I could get deeper understanding when codin
 
 PS1 is about approximation methods, such as Chebyshev polynomials;  
 
-PS2 is about constructing different measure of Labor Share in US, UK, and Japan;
+PS2 is to constructing different measure of Labor Share in US, UK, and Japan;
 
 PS3:
 - compute different set-up in an infinite periods of Representative Agent economy;
@@ -20,36 +20,42 @@ PS4 is Value Function Iteration in both Deterministic and Stochastic Growth Mode
 - updated: added Tax part.
 
 PS5 is our final project, I uploaded a first version on 1 Nov, 2018. Expected to finish before January, 2019.
+- A simple consumption and saving model with 2-state transition income matrix and natural borrowing constraint. (Partial Equilibrium)
+- Solve the ABHI Model in various cases. (General Equilibrium)
 
-## Main Reference:
+---
+
+### Main Reference:
 - [Dynamic General Equilibrium Modelling, Computational Methods and Applications](https://www.wiwi.uni-augsburg.de/vwl/maussner/dge_buch/dge_book_2ed/downloads_2nd/): with relative codes for Fortran
 
 - [Applied Computational Economics and Finance](http://www4.ncsu.edu/unity/users/p/pfackler/www/compecon/): with CompEcon Toolbox for Matlab
 
-## Useful Links:
+### Useful Links:
 
-### Theoretic slides:
--[Notes on Computational Methods for Macroeconomics, UIUC, by Makoto Nakajima](https://sites.google.com/site/makotonakajima/notes)
+#### Theoretic slides:
+- [Notes on Computational Methods for Macroeconomics, UIUC, by Makoto Nakajima](https://sites.google.com/site/makotonakajima/notes)
 
--[Econ 712 Ph.D. Macroeconomic Theory I (2017), UWM, by Eirik Eylands Brandsas](https://sites.google.com/site/eirikbrandsaas/teaching/econ712_2017)
+- [Econ 712: Ph.D. Macroeconomic Theory I, 2017, UWM, by Eirik Eylands Brandsas](https://sites.google.com/site/eirikbrandsaas/teaching/econ712_2017)
 
--[ECON899: Computational Methods, UWM, by Dean Corbae](https://sites.google.com/a/wisc.edu/deancorbae/teaching)
-### data source:
--[Bureau of Economics Analysis, US](https://apps.bea.gov/iTable/iTable.cfm?reqid=19&step=2#reqid=19&step=2&isuri=1&1921=survey)
+- [Econ 899: Computational Methods, 2017, UWM, by Dean Corbae](https://sites.google.com/a/wisc.edu/deancorbae/teaching)
 
--[OECD.Stat](https://stats.oecd.org/#)
+#### Data source:
+- [Bureau of Economics Analysis, US](https://apps.bea.gov/iTable/iTable.cfm?reqid=19&step=2#reqid=19&step=2&isuri=1&1921=survey)
 
-### Numerical Solution Methods
--[Economic Growth: Theory and numerical solution methods, Novales, Alfonso, Fernández, Esther, Ruíz, Jesús, 2009](https://www.ucm.es/fundamentos-analisis-economico2/growth-textbook)
+- [OECD.Stat](https://stats.oecd.org/#)
 
--[Numerical analysis notes for EC 702, Boston U, Alisdair Mckay](http://people.bu.edu/amckay/EC702/index.html)
+#### Numerical Solution Methods
+- [Economic Growth: Theory and numerical solution methods, Novales, Alfonso, Fernández, Esther, Ruíz, Jesús, 2009](https://www.ucm.es/fundamentos-analisis-economico2/growth-textbook)
+
+-[Numerical analysis notes for EC 702, BU, by Alisdair Mckay](http://people.bu.edu/amckay/EC702/index.html)
 
 ### Representative Agent Part
--[Github repository of Applied Macroeconomics by Marcin Bielecki ](http://coin.wne.uw.edu.pl/mbielecki/index.php?show=LecturesApplied_Macroeconomics)
+
+- [Github repository of Applied Macroeconomics by Marcin Bielecki ](http://coin.wne.uw.edu.pl/mbielecki/index.php?show=LecturesApplied_Macroeconomics)
 
 
 ### Heterogeneous Agent Part
 
--[Methods and Applications in Quantitative Macroeconomics, Central European University by Katrin Rabitsch](https://sites.google.com/site/katrinrabitsch/teaching/quantmacro2012)
+- [Methods and Applications in Quantitative Macroeconomics, Central European University by Katrin Rabitsch](https://sites.google.com/site/katrinrabitsch/teaching/quantmacro2012)
 
--[Economics 303: Advanced Macroeconomics I by George Hall](http://people.brandeis.edu/~ghall/econ303/)
+- [Economics 303: Advanced Macroeconomics I by George Hall](http://people.brandeis.edu/~ghall/econ303/)
