@@ -1,6 +1,6 @@
 # Quantitative Macroeconomics
 
-## Economics PhD 2nd Year Course, UAB, by Prof. Raul Santaeulalia:
+## Economics PhD 2nd Year Course, UAB, by Prof. Raul Santaeulalia and Prof. Luis Rojas:
 [2018-2019 Quantitative Macroeconomic](http://r-santaeulalia.net/Quantitative-Macro-F18-UnitI.html)
 
 This repository is for uploading Problem Sets Solutions.
