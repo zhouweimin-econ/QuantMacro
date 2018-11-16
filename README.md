@@ -1,61 +1,22 @@
-# Quantitative Macroeconomics
+# Quantitative Macroeconomics, 2018-2019
 
-## Economics PhD 2nd Year Course, UAB, by Prof. Raul Santaeulalia and Prof. Luis Rojas:
-[2018-2019 Quantitative Macroeconomic](http://r-santaeulalia.net/Quantitative-Macro-F18-UnitI.html)
+## Economics PhD 2nd Year Course, UAB
 
-This repository is for uploading Problem Sets Solutions.
+### Intro
+Our course is separated into two parts.
+Part A is from basic numerical methods to
+solution of Representative Agent Models (permanent income, life-cycle) with VFI, PFI;
+and eventually going to Heterogenous Agents with Incomplete Markets.
+In the end, we need to solve Recursive Stationary Equilibrium of the Aiyagari-Bewley-Hugget-Imrohoroglu (ABHI) Model.
 
-Most of my work was on MATLAB, since I could get deeper understanding when coding on MATLAB, whereas for Python,
-[QuantEcon](https://lectures.quantecon.org/py/index.html) has already developed many packages (i.e. various VFI)
+Part B accesses to Krusell and Smith (1998) model (Heterogenous agents, incomplete markets and aggregate uncertainty), and defaultable sovereign debt.
 
-PS1 is about approximation methods, such as Chebyshev polynomials;  
+### Background Readings:
+- Jonathan Heathcote, Kjetil Storesletten, and Gianluca Violante (2009). [Quantitative Macroeconomics with Heterogeneous Households](http://www.annualreviews.org/doi/pdf/10.1146/annurev.economics.050708.142922), Annual Review of Economics
+- Guvenen, Fatih (2012). [Macroeconomics with Heterogeneity: A Practical Guide](http://www.richmondfed.org/publications/research/economic_quarterly/2011/q3/pdf/guvenen.pdf), Richmond Fed QR
+- Per Krusell, Anthony Smith (2006). [quantitative macroeconomic models with heterogeneous agents](http://aida.wss.yale.edu/smith/paper15.pdf), Advances in Economics and Econometrics: Theory and Applications, Ninth World Congress
 
-PS2 is to constructing different measure of Labor Share in US, UK, and Japan;
-
-PS3:
-- compute different set-up in an infinite periods of Representative Agent economy;
-- 2-period Heterogeneous Agent economy with different initial wealth and productivity shocks. ( In the HA, we are required to compute GE, hence, need an interest rate to clear the asset market.)
-
-PS4 is Value Function Iteration in both Deterministic and Stochastic Growth Model.
-- updated: added Tax part.
-
-PS5 is our final project, I uploaded a first version on 1 Nov, 2018. Expected to finish before January, 2019.
-- A simple consumption and saving model with 2-state transition income matrix and natural borrowing constraint. (Partial Equilibrium)
-- Solve the ABHI Model in various cases. (General Equilibrium)
-
----
-
-### Main Reference:
-- [Dynamic General Equilibrium Modelling, Computational Methods and Applications](https://www.wiwi.uni-augsburg.de/vwl/maussner/dge_buch/dge_book_2ed/downloads_2nd/): with relative codes for Fortran
+### Textbook Reference:
+- [Dynamic General Equilibrium Modeling, Computational Methods and Applications](https://www.wiwi.uni-augsburg.de/vwl/maussner/dge_buch/dge_book_2ed/downloads_2nd/): with relative codes for Fortran
 
 - [Applied Computational Economics and Finance](http://www4.ncsu.edu/unity/users/p/pfackler/www/compecon/): with CompEcon Toolbox for Matlab
-
-### Useful Links:
-
-#### Theoretic slides:
-- [Notes on Computational Methods for Macroeconomics, UIUC, by Makoto Nakajima](https://sites.google.com/site/makotonakajima/notes)
-
-- [Econ 712: Ph.D. Macroeconomic Theory I, 2017, UWM, by Eirik Eylands Brandsas](https://sites.google.com/site/eirikbrandsaas/teaching/econ712_2017)
-
-- [Econ 899: Computational Methods, 2017, UWM, by Dean Corbae](https://sites.google.com/a/wisc.edu/deancorbae/teaching)
-
-#### Data source:
-- [Bureau of Economics Analysis, US](https://apps.bea.gov/iTable/iTable.cfm?reqid=19&step=2#reqid=19&step=2&isuri=1&1921=survey)
-
-- [OECD.Stat](https://stats.oecd.org/#)
-
-#### Numerical Solution Methods
-- [Economic Growth: Theory and numerical solution methods, Novales, Alfonso, Fernández, Esther, Ruíz, Jesús, 2009](https://www.ucm.es/fundamentos-analisis-economico2/growth-textbook)
-
-- [Numerical analysis notes for EC 702, BU, by Alisdair Mckay](http://people.bu.edu/amckay/EC702/index.html)
-
-#### Representative Agent Part
-
-- [Github repository of Applied Macroeconomics by Marcin Bielecki ](http://coin.wne.uw.edu.pl/mbielecki/index.php?show=LecturesApplied_Macroeconomics)
-
-
-#### Heterogeneous Agent Part
-
-- [Methods and Applications in Quantitative Macroeconomics, Central European University by Katrin Rabitsch](https://sites.google.com/site/katrinrabitsch/teaching/quantmacro2012)
-
-- [Economics 303: Advanced Macroeconomics I by George Hall](http://people.brandeis.edu/~ghall/econ303/)
