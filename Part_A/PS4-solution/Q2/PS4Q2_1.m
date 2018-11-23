@@ -143,7 +143,7 @@ while (maxDifference>tolerance)
            
 end
 
-disp('Value Function Iterations for the deterministic growth model are completed.')
+disp('Value Function Iterations for the growth model are completed.')
 toc
 disp('.')
 disp('Number of iterations:'); 
