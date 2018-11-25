@@ -1,0 +1,30 @@
+
+IRF_distr=Gamma_state*IRF_state_sparse(1:mpar.numstates-mpar.os,1:mpar.maxlag);
+% preparation
+IRF_H=100*grid.h(1:end-1)*IRF_distr(mpar.nm+mpar.nk+(1:mpar.nh-1),2:end)/par.H;
+K=grid.k*IRF_distr(mpar.nm+(1:mpar.nk),:)+grid.K;
+I=(K(2:end)-(1-par.delta)*K(1:end-1));
+IRF_I=100*(I/(par.delta*grid.K)-1);
+IRF_K=100*grid.k*IRF_distr(mpar.nm+(1:mpar.nk),2:end)./grid.K;
+IRF_M=100*grid.m*IRF_distr((1:mpar.nm),2:end)./(targets.B+par.ABS*grid.K);
+M=grid.m*IRF_distr((1:mpar.nm),1:end)+targets.B-par.ABS*(K(1:end)-grid.K);
+IRF_S=100*IRF_state_sparse(end,1:end-1);
+Y=Output*(1+IRF_state_sparse(end-mpar.oc+3,1:end-1));
+G=par.G*(1+IRF_state_sparse(end-mpar.oc+4,1:end-1));
+IRF_C=100*((Y-G-I)./(Output-par.G-par.delta*grid.K)-1);
+IRF_Y=100*IRF_state_sparse(end-mpar.oc+3,1:end-1);
+IRF_G=100*IRF_state_sparse(end-mpar.oc+4,1:end-1);
+IRF_W=100*IRF_state_sparse(end-mpar.oc+5,1:end-1);
+IRF_N=100*IRF_state_sparse(end-mpar.oc+8,1:end-1);
+IRF_R=100*IRF_state_sparse(end-mpar.oc+6,1:end-1);
+IRF_PI=100*100*IRF_state_sparse(end-mpar.oc+2,1:end-1);
+PI=1+IRF_state_sparse(end-mpar.oc+2,1:end-1);
+Q=par.Q*(1+IRF_state_sparse(end-mpar.oc+1,1:end-1));
+R=par.R*(1+IRF_state_sparse(end-mpar.oc+6,1:end-1));
+RB=par.RB+(IRF_state_sparse(end-1,2:end));
+IRF_RB=100*100*(RB-par.RB);
+IRF_RBREAL=100*100*(RB./PI-par.RB);
+IRF_Q=100*100*(Q-par.Q);
+IRF_D=100*100*((1+IRF_R/100)*par.R-par.R);
+Deficit=100*(M(2:end) - M(1:end-1)./PI)./Y;
+IRF_LP=100*100*(((Q(2:end)+R(2:end))./Q(1:end-1)-RB(1:end-1)./PI(2:end))-((1+par.R/par.Q)-par.RB));

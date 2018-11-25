@@ -1,0 +1,10 @@
+% =========================================================================
+% Part of the Matlab code to accompany the paper
+% 'Solving heterogeneous agent models in discrete time with
+% many idiosyncratic states by perturbation methods', CEPR Discussion Paper
+% DP13071
+% by Christian Bayer and Ralph Luetticke
+% http://www.erc-hump-uni-bonn.net/
+% =========================================================================
+
+In each folder, run masterscript.m. Results are saved in the folder 'latex'.

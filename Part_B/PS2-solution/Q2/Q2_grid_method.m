@@ -6,13 +6,6 @@
 clear;clf;close all;
 cd '~/Desktop/PS2'  % in order to save png
 %% Initial values and parameters
-%%%%%%%%%%%% Finding the transition matrix for the state %%%%%%%%%%%%%%
-
-% Weimin: by the answer in my typed-up pdf, we have the following matrix to
-% determine 16 unkowns of pi_{zz'ee'}  by computing A*pi=b  which denotes
-% pi = inv(A)*b
-
-% The system of equations 
 A= [ 1  0  0  0  1  0  0  0  0  0  0  0  0  0  0  0 ; ...
      0  1  0  0  0  1  0  0  0  0  0  0  0  0  0  0 ; ...
      0  0  0  0  0  0  0  0  0  0  1  0  0  0  1  0 ; ...
@@ -33,19 +26,10 @@ A= [ 1  0  0  0  1  0  0  0  0  0  0  0  0  0  0  0 ; ...
 b= [7/8; 7/8; 7/8; 7/8; 1/8; 1/8; 1/8; 1/8; 7/24; 21/40; 0; 0; 0.02; 0.005; 0.05; 0.02];
 
 pize = reshape(A^-1*b,4,4); 
-% Weimin: pi_{zz'ee'} : in other words, the markov chain that describes the
-% joint evolution of the exogenous shocks
-
-% Interpretation: 
-% finding a job is easier if the economy is exiting from a recession, 
-% and losing a job ismore likely when the economy is entering a recession
-
-% Weimin: transtion matrix aggregate state
-
 piZ = [ 7/8  1/8;...
         1/8  7/8];
     
-%%%%%%%%%%%%  Parameters   %%%%%%%%%%%%%%%%%%%%%%%%%%
+% Parameters
 betta=0.95;
 delta=0.0025;
 z=[1.6 0.8];
@@ -53,75 +37,63 @@ alfa=0.36;
 L=[0.96, 0.9]; % ug = 0.04 and ub = 0.1 
 
 
-v1g = @(k,K,h,H) log( alfa*z(1)*(K/H)^(alfa-1).*k+ (1-alfa)*z(1)*(K/H)^(alfa).*h -delta.*k )/(1-betta);
-v1b = @(k,K,h,H) log( alfa*z(2)*(K/H)^(alfa-1)*k+ (1-alfa)*z(2)*(K/H)^(alfa).*h -delta*k )/(1-betta);
-v0g = @(k,K,h,H) log( alfa*z(1)*(K/H)^(alfa-1)*k -delta*k )/(1-betta);
-v0b = @(k,K,h,H) log( alfa*z(2)*(K/H)^(alfa-1)*k -delta*k )/(1-betta);
 
-%%%%%%%%%%%%% Grid for k and K %%%%%%%%%%%%%%%%%%%%%%%%
-
-% just for a faster computation, technically, we should explore a larger
-% grid
-k_grid=[0:0.1:5,5.3:0.3:50]; % grid for individual capital: {0,0.1,0.2,...,4.9,5}U{5.3,5.6,5.9,...,50}
+% Grid for k and K, h
+k_grid=[0.9:0.1:5,5.3:0.3:50]; % grid for individual capital: {0,0.1,0.2,...,4.9,5}U{5.3,5.6,5.9,...,50}
 K_grid=[16:0.04:18.5];       % aggreagte capital grid: {16,16.04,16.08,16.12,...,18.5}
-h_grid=[0.1:0.05:0.9];
-H_grid=[0.5:0.05:1];
-% K = \integral from 0 to 1 of k_i * di  = E(k) hence, the average of
-% individual k
-
-
-% Evaluation of the VF
-% weimin: for each K, we have value function of all small k, 
-% for 1g 1b 0g 0b (zz'ee' state combination)
-for j=1:size(K_grid,2)
-    for m =1:size(H_grid,2)
-        for la=1:size(h_grid,2)
-V1g(:,j,la,m)= v1g(k_grid,K_grid(j),h_grid(la),H_grid(m))';
-V1b(:,j,la,m)= v1b(k_grid,K_grid(j),h_grid(la),H_grid(m))';
-V0g(:,j,la,m)= v0g(k_grid,K_grid(j),h_grid(la),H_grid(m))';
-V0b(:,j,la,m)= v0b(k_grid,K_grid(j),h_grid(la),H_grid(m))';
-        end
-    end
-end
-
-%%%%%% Perceived law of motion  %%%%%%%%%%%
+h_grid=[0.2:0.05:0.9];
+%%
+% Perceived law of motion
 % initial values
-b0g=0;
-b1g=1;
-b0b=0;
-b1b=1;
+b0g=0;b1g=1;b0b=0;b1b=1;
 
-d0g=0;
-d1g=1;
-d0b=0;
-d1b=1;
-%% 2-1 with straight guess version 
+d0g=0;d1g=1;d0b=0;d1b=1;
+
 H=@(K,zi) exp( (b0g+b1g*log(K))*zi + (b0b+b1b*log(K))*(1-zi) );
 
 G=@(K,zi) exp( (d0g+d1g*log(K))*zi + (d0b+d1b*log(K))*(1-zi) );
 
-c= @(i,I,J,e,g) max(alfa*z(g)*(K_grid(I)/G(K_grid(I),z(g)))^(alfa-1).*k_grid(i)+ ...
-              (1-alfa)*z(g)*(K_grid(I)/G(K_grid(I),z(g)))^(alfa)*e*h_grid(J) +(1-delta)*k_grid(i) ...
+c= @(i,I,m,e,g) max(alfa*z(g)*(K_grid(I)/G(K_grid(I),z(g)))^(alfa-1).*k_grid(i)+ ...
+              (1-alfa)*z(g)*(K_grid(I)/G(K_grid(I),z(g)))^(alfa)*e*h_grid(m) +(1-delta)*k_grid(i) ...
              - k_grid,0) ;
+% Evaluation of the VF
+% weimin: for each K, we have value function of all small k, 
+% for 1g 1b 0g 0b (zz'ee' state combination)
+v1g = @(k,K,h) log( alfa*z(1)*(K/G(K,1))^(alfa-1).*k + (1-alfa)*z(1)*(K/G(K,1))^(alfa).*h -delta.*k )./(1-betta);
+v1b = @(k,K,h) log( alfa*z(2)*(K/G(K,0))^(alfa-1).*k  + (1-alfa)*z(2)*(K/G(K,0))^(alfa).*h -delta.*k  )./(1-betta);
+v0g = @(k,K,h) log( alfa*z(1)*(K/G(K,1))^(alfa-1).*k -delta.*k )./(1-betta);
+v0b = @(k,K,h) log( alfa*z(2)*(K/G(K,0))^(alfa-1).*k -delta.*k )./(1-betta);
+
+for I=1:size(K_grid,2)
+    for m =1:size(h_grid,2)
+        V1g(:,I,m)= v1g(k_grid,K_grid(I),h_grid(m))';
+        V1b(:,I,m)= v1b(k_grid,K_grid(I),h_grid(m))';
+        V0g(:,I,m)= v0g(k_grid,K_grid(I),h_grid(m))';
+        V0b(:,I,m)= v0b(k_grid,K_grid(I),h_grid(m))';
+    end
+end
+
+
+%% 2-1 with straight guess version 
+
 gamma = 2.0;
 
-for iter=1:500  % VFI         
+for iter=1:1000  % VFI  
+    
 for i=1:size(k_grid,2)
     for I=1:size(K_grid,2)        
-        for J=1:size(h_grid,2)
-            for Q=1:size(H_grid,2)
+        for m=1:size(h_grid,2)
             [dif,Ip]  =min(abs(K_grid - H(K_grid(I),1))); 
-            [diff,Ipl]=min(abs(H_grid - G(K_grid(I),1)));
-            V0gt(i,I,J,Q)= max(c(i,I,J,0,1).^(1-gamma)./(1-gamma) +...
-                betta * ([pize(1,:)]*([V0g(:,Ip,:,Ipl),V1g(:,Ip,:,Ipl),V0b(:,Ip,:,Ipl),V1b(:,Ip,:,Ipl)]'))');
-            V1gt(i,I,J,Q)= max(c(i,I,J,0,1).^(1-gamma)./(1-gamma)+...
-                betta * ([pize(2,:)]*([V0g(:,Ip,:,Ipl),V1g(:,Ip,:,Ipl),V0b(:,Ip,:,Ipl),V1b(:,Ip,:,Ipl)]'))');  
+            
+            %unemployed, good
+            V0gt(i,I,m)= max( log(c(i,I,m,0,1)) +...
+                betta * ([pize(1,:)]*([V0g(:,Ip,m),V1g(:,Ip,m),V0b(:,Ip,m),V1b(:,Ip,m)]'))');
+            V1gt(i,I,m)= max(c(i,I,m,1,1).^(1-gamma)./(1-gamma)+...
+                betta * ([pize(2,:)]*([V0g(:,Ip,m),V1g(:,Ip,m),V0b(:,Ip,m),V1b(:,Ip,m)]'))');  
        
             [dif,Ip]  =min(abs(K_grid - H(K_grid(I),0)));
-            [diff,Ipl]=min(abs(H_grid - G(K_grid(I),1)));
-            V0bt(i,I,J,Q)= max(c(i,I,J,0,1).^(1-gamma)./(1-gamma) + betta * ([pize(3,:)]*([V0g(:,Ip),V1g(:,Ip),V0b(:,Ip),V1b(:,Ip)]'))');
-            V1bt(i,I,J,Q)= max(c(i,I,J,0,1).^(1-gamma)./(1-gamma) + betta * ([pize(4,:)]*([V0g(:,Ip),V1g(:,Ip),V0b(:,Ip),V1b(:,Ip)]'))');      
-            end
+            V0bt(i,I,m)= max(c(i,I,m,0,2).^(1-gamma)./(1-gamma) + betta * ([pize(3,:)]*([V0g(:,Ip,m),V1g(:,Ip,m),V0b(:,Ip,m),V1b(:,Ip,m)]'))');
+            V1bt(i,I,m)= max(c(i,I,m,1,2).^(1-gamma)./(1-gamma) + betta * ([pize(4,:)]*([V0g(:,Ip,m),V1g(:,Ip,m),V0b(:,Ip,m),V1b(:,Ip,m)]'))');      
         end
     end     
 end
@@ -137,7 +109,7 @@ else
     V1b=V1bt;
 end 
 end % VFI         
-        
+   %%     
 % Recover the policy function only after converging for saving time and memory 
 for i=1:size(k_grid,2)
     for I=1:size(K_grid,2)
