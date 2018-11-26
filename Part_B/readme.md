@@ -29,10 +29,19 @@ and government's budget constraint is:
 
 There's many numerical methods we can choose to solve such problem, in the PS, we're practicing to be familiar with VFI, grid-methods, which is a bit slow. We can alos implement many others methods: 
 
-### 1. VFI with evenly-spaced grids methods
+## Solution Methods:
+
+### 1. Linearization:
+We learned this method during our Macro II, which could be simply done by Dynare. 
+
+### 2. conventional VFI 
 See [Part_B/PS1-solution/main.m](https://github.com/zhouweimin233/QuantMacro/blob/master/Part_B/PS1-solution/main.m) 
 
-### 2. Euler Equation iteration with projection methods
+Notice that we use evenly-spaced grids (finer grids yield better approximations but are costly in terms of computer time). And also policy function iteration plus some improvments (See [Part_A/PS4.pdf]https://github.com/zhouweimin233/QuantMacro/blob/master/Part_A/QM-PS4.pdf).
+
+([For algorithm containing numerical optimization and root-finding, Matlab performs worse than Python and Julia](https://web.stanford.edu/~maliars/Files/Files/CEPR-DP13210.pdf))
+
+### 3. some others: Euler Equation iteration with projection methods
 
 1. Just like previous algorithm, we still approximate Law of motion with our Perceived law of motion and update the parameters for simulation. 
 2. create state variables nodes: <a href="https://www.codecogs.com/eqnedit.php?latex=s_{i,t}=\{\epsilon_{i,t},&space;k_{i,t},s_{t}\}$&space;with&space;$s_t&space;=&space;\{&space;z_t,&space;K_t,&space;m_t&space;\}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?s_{i,t}=\{\epsilon_{i,t},&space;k_{i,t},s_{t}\}$&space;with&space;$s_t&space;=&space;\{&space;z_t,&space;K_t,&space;m_t&space;\}" title="s_{i,t}=\{\epsilon_{i,t}, k_{i,t},s_{t}\}$ with $s_t = \{ z_t, K_t, m_t \}" /></a> where <a href="https://www.codecogs.com/eqnedit.php?latex=m_{t&plus;1}&space;=&space;\Gamma&space;(z_{t&plus;1},z_t,&space;s_t;&space;\eta_{\Gamma})" target="_blank"><img src="https://latex.codecogs.com/gif.latex?m_{t&plus;1}&space;=&space;\Gamma&space;(z_{t&plus;1},z_t,&space;s_t;&space;\eta_{\Gamma})" title="m_{t+1} = \Gamma (z_{t+1},z_t, s_t; \eta_{\Gamma})" /></a>
