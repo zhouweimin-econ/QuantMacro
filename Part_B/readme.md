@@ -46,7 +46,7 @@ See [Part_B/PS1-solution/main.m](https://github.com/zhouweimin233/QuantMacro/blo
 
 replace consumption by BC, FOC changes to:
 
-<a href="https://www.codecogs.com/eqnedit.php?latex=\begin{align}&space;\begin{split}&space;\{&space;r(z,K)&plus;(1-\delta)k&space;&plus;&space;(1-\tau(z))w(z,K)l\epsilon&space;\\&plus;&space;\mu&space;w(z,K)(1-\epsilon)-P_n(s;\eta_{P_n})&space;\}^{-\gamma}&space;\end{split}&space;\end{align}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\begin{align}&space;\begin{split}&space;\{&space;r(z,K)&plus;(1-\delta)k&space;&plus;&space;(1-\tau(z))w(z,K)l\epsilon&space;\\&plus;&space;\mu&space;w(z,K)(1-\epsilon)-P_n(s;\eta_{P_n})&space;\}^{-\gamma}&space;\end{split}&space;\end{align}" title="\begin{align} \begin{split} \{ r(z,K)+(1-\delta)k + (1-\tau(z))w(z,K)l\epsilon \\+ \mu w(z,K)(1-\epsilon)-P_n(s;\eta_{P_n}) \}^{-\gamma} \end{split} \end{align}" /></a>
+<a href="https://www.codecogs.com/eqnedit.php?latex=\{&space;\begin{align*}&space;r(z,K)&plus;(1-\delta)k&space;&plus;&space;(1-\tau(z))w(z,K)l\epsilon&space;\\&plus;&space;\mu&space;w(z,K)(1-\epsilon)-P_n(s;\eta_{P_n})&space;\end{align*}&space;\}^{-\gamma}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\{&space;\begin{align*}&space;r(z,K)&plus;(1-\delta)k&space;&plus;&space;(1-\tau(z))w(z,K)l\epsilon&space;\\&plus;&space;\mu&space;w(z,K)(1-\epsilon)-P_n(s;\eta_{P_n})&space;\end{align*}&space;\}^{-\gamma}" title="\{ \begin{align*} r(z,K)+(1-\delta)k + (1-\tau(z))w(z,K)l\epsilon \\+ \mu w(z,K)(1-\epsilon)-P_n(s;\eta_{P_n}) \end{align*} \}^{-\gamma}" /></a>
 
 <a href="https://www.codecogs.com/eqnedit.php?latex==E[\{&space;\begin{align*}&space;\beta(&space;r(z',K')&plus;(1-\delta))\times(r(z',K')&&plus;1-\delta)P_{n}(s;\eta_{P_n})&space;\\&space;&plus;(1-\tau(z'))w(z',K')l\epsilon'&space;&\\&plus;&space;\mu&space;w(z',K')(1-\epsilon')-P_n(s';\eta_{P_n})&space;\end{align*}&space;\}^{-\gamma}]" target="_blank"><img src="https://latex.codecogs.com/gif.latex?=E[\{&space;\begin{align*}&space;\beta(&space;r(z',K')&plus;(1-\delta))\times(r(z',K')&&plus;1-\delta)P_{n}(s;\eta_{P_n})&space;\\&space;&plus;(1-\tau(z'))w(z',K')l\epsilon'&space;&\\&plus;&space;\mu&space;w(z',K')(1-\epsilon')-P_n(s';\eta_{P_n})&space;\end{align*}&space;\}^{-\gamma}]" title="=E[\{ \begin{align*} \beta( r(z',K')+(1-\delta))\times(r(z',K')&+1-\delta)P_{n}(s;\eta_{P_n}) \\ +(1-\tau(z'))w(z',K')l\epsilon' &\\+ \mu w(z',K')(1-\epsilon')-P_n(s';\eta_{P_n}) \end{align*} \}^{-\gamma}]" /></a>
 
@@ -54,11 +54,10 @@ replace consumption by BC, FOC changes to:
 where the expectation is transition matrix times each possible state would happen.
 
 5. determine prices remains the same as before: 
-$$ r(z,K) = z \alpha (\frac{K}{L(z)})^{\alpha -1 } \\
-w = z (1-\alpha) (\frac{K}{L(z)})^{\alpha}
-$$
 
-6. by minimizing the error term (LHS-RHS) from Step.4: $\min \sum u^2_k$,we could find the best fitted parameters. 
+<a href="https://www.codecogs.com/eqnedit.php?latex=\begin{align*}&space;r(z,K)&space;&=&space;z&space;\alpha&space;(\frac{K}{L(z)})^{\alpha&space;-1&space;}&space;\\&space;w(z,K)&space;&=&space;z&space;(1-\alpha)&space;(\frac{K}{L(z)})^{\alpha}&space;\\&space;\end{align*}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\begin{align*}&space;r(z,K)&space;&=&space;z&space;\alpha&space;(\frac{K}{L(z)})^{\alpha&space;-1&space;}&space;\\&space;w(z,K)&space;&=&space;z&space;(1-\alpha)&space;(\frac{K}{L(z)})^{\alpha}&space;\\&space;\end{align*}" title="\begin{align*} r(z,K) &= z \alpha (\frac{K}{L(z)})^{\alpha -1 } \\ w(z,K) &= z (1-\alpha) (\frac{K}{L(z)})^{\alpha} \\ \end{align*}" /></a>
+
+6. by minimizing the error term (LHS-RHS) from Step.4: <a href="https://www.codecogs.com/eqnedit.php?latex=\min&space;\sum&space;u^2_k" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\min&space;\sum&space;u^2_k" title="\min \sum u^2_k" /></a>,we could find the best fitted parameters. 
 
 
 ### 3. [explicit aggregation](http://www.wouterdenhaan.com/numerical/methodsheteroxpa.pdf)
