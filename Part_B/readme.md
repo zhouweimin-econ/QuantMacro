@@ -1,5 +1,5 @@
 ### Part B by [Prof. Luis Rojas](https://sites.google.com/site/luiserojasweb)
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+
 ---
 ### Useful Links:
 
@@ -10,7 +10,7 @@
 ---
 #### PS1 and PS2 is about solving Models with HA - Krusell&Smith (1998)
 
-- employment shocks ($\epsilon_{i,t}\in \{0,1\}$)
+- employment shocks (<a href="https://www.codecogs.com/eqnedit.php?latex=$\epsilon_{i,t}\in&space;\{0,1\}$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$\epsilon_{i,t}\in&space;\{0,1\}$" title="$\epsilon_{i,t}\in \{0,1\}$" /></a>)
 - Incomplete markets, with borrowing constraint $k_{i,t+1}\leq 0$
 
 - transition probabilities calibrated by K&S(1998), where $z_t$, $\epsilon_{i,t}# take two values, respectively. And probability of being (un)employed depends on $z_t$
