@@ -1,0 +1,76 @@
+\documentclass{article}[a4paper]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Weimin Zhou
+% 7, Nov, 2018
+% upon some request, I uploaded these files for LaTeX beginners
+% They could be used for Problem Set Solution typing
+% startup.tex specifies all package using and title, author, abstract;
+% main.tex    contains the main part of your answers.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage
+[
+        a4paper,    % other options: a3paper, a5paper, etc
+        left=1.5cm,
+        right=1.5cm,
+        top=2cm,
+        bottom=2cm,
+        % use vmargin=2cm to make vertical margins equal to 2cm.
+        % us  hmargin=3cm to make horizontal margins equal to 3cm.
+        % use margin=3cm to make all margins  equal to 3cm.
+]
+{geometry}
+
+\usepackage[english]{babel}
+\usepackage{booktabs, graphicx}   %replacing \hline
+\usepackage{longtable}  % formatting tables
+\usepackage{dcolumn}    %centering based on dots
+\usepackage[utf8]{inputenc}
+\usepackage{adjustbox}
+\usepackage{blkarray}
+\usepackage{color}
+\usepackage[colorlinks,linkcolor=blue]{hyperref} % For cross-reference
+\usepackage{amsmath,amsfonts,amssymb,amsthm} % For mathematics
+\usepackage{float}    % For include graphics
+\usepackage{caption,subfigure}
+
+% For highlighting codes
+\usepackage{listings}
+\usepackage{xcolor} % change the color in equation 
+\usepackage{textcomp}
+\usepackage[framed,numbered,autolinebreaks,useliterate]{mcode}
+\usepackage[section]{placeins}
+\addtocounter{MaxMatrixCols}{20} % set amsmath matrix max columns  to 20 not 10
+
+
+\setlength{\parindent}{4 pt}
+
+\title{Quant Macro (Part 2)  PS2 - Solving the Krusell Smith (1998) Model with endogenous Labor Supply}
+
+\author{Weimin Zhou}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+	Quantitative Macroeconomics (Part 2) Problem Set 2
+
+	I`m doing this problem set into 2 parts:
+
+        Part 1: Question 1 for solving Aiyagari model with endogenous labor supply (the case without aggregate risk), I use two different methods: endogenous grid methods with interpolation nodes, and Sample codes from PS1 with brute-force VFI plus some modifications. 
+        \medskip
+        ref:
+
+        1. \href{https://www.sas.upenn.edu/~jesusfv/companion.htm}{Companion Web Page for "Comparing Solution Methods for Dynamic Equilibrium Economies}
+
+        2. \href{https://www.sciencedirect.com/science/article/pii/S0304393206002558}{Marcet, Albert, Francesc Obiols-Homs, and Philippe Weil. "Incomplete markets, labor supply and capital accumulation." Journal of Monetary Economics 54.8 (2007): 2621-2635.}
+
+        Part 2: Question 2 for solving KS with endogenous labor supply (the case with aggregate risk)
+\end{abstract}
+
+\tableofcontents
+
+\pagebreak 
+
+\input{main}
+\pagebreak
+
+\end{document}

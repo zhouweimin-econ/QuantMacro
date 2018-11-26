@@ -113,7 +113,6 @@ plot(RR); title('R')
 figure(gcf+1)
 NGUYS=3;
 for i=1:1:NGUYS
-figure
 subplot(NGUYS,3,NGUYS*(i-1)+1)
 plot(ZZ(i,:)); title('A'); title('Zi')
 subplot(NGUYS,3,NGUYS*(i-1)+2)
@@ -121,7 +120,7 @@ plot(SSinext(i,:)); title('Si')
 subplot(NGUYS,3,NGUYS*(i-1)+3)
 plot(CCi(i,:)); title('Ci')
 end
-%figure(gcf+1)
+figure(gcf+1)
 
 
 disp('Old coefficients, constant, K and log(A)')

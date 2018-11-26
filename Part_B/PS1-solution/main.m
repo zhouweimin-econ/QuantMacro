@@ -432,4 +432,3 @@ for t_ind=1:100
    pause(1)
 end
 % the eventual asset distribution store manually, discussion in the pdf.
-

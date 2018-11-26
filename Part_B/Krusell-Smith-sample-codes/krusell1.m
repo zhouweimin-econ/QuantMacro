@@ -3,6 +3,7 @@
 % UNCERTAINTY WITH CAPITAL (KRUSELL-SMITH)
 %--------------------------------------------------------------------------
 
+
 ns=180;
 nK=3;
 smin=-3;
@@ -25,11 +26,11 @@ PA = [ 0.90 0.10
 
 % Lump-together idiosyncratic and aggregate shock in a single P
 
-[ AME, ZME ]=ndgrid(Avec,Zvec);
+[ AME ZME ]=ndgrid(Avec,Zvec);
 P = kron(PA,PZ);
 
-AMEvec = AME(:) ;
-ZMEvec = ZME(:) ;
+AMEvec = vec(AME) ;
+ZMEvec = vec(ZME) ;
 
 Yvec = AMEvec.*ZMEvec ;
 
