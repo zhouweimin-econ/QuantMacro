@@ -13,18 +13,12 @@
 - employment shocks (<a href="https://www.codecogs.com/eqnedit.php?latex=$\epsilon_{i,t}\in&space;\{0,1\}$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$\epsilon_{i,t}\in&space;\{0,1\}$" title="$\epsilon_{i,t}\in \{0,1\}$" /></a>)
 - Incomplete markets, with borrowing constraint $k_{i,t+1}\leq 0$
 
-- transition probabilities calibrated by K&S(1998), where $z_t$, $\epsilon_{i,t}# take two values, respectively. And probability of being (un)employed depends on $z_t$
+- transition probabilities calibrated by K&S(1998), where <a href="https://www.codecogs.com/eqnedit.php?latex=z_t$,&space;$\epsilon_{i,t}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?z_t$,&space;$\epsilon_{i,t}" title="z_t$, $\epsilon_{i,t}" /></a> take two values, respectively. And probability of being (un)employed depends on <a href="https://www.codecogs.com/eqnedit.php?latex=z_t" target="_blank"><img src="https://latex.codecogs.com/gif.latex?z_t" title="z_t" /></a>
 
 ### Recursive form of problem
-$$V(\epsilon,k,Z) = \max_{c,k'} \ln(c_{i,t}) + \beta V(\epsilon',k',Z')\\
-s.t.  \\
-c + k' = rk + (1-\tau) w \bar l \epsilon+\mu w (1-\epsilon) + (1-\delta)k \\ 
-k' \leq 0 $$
+<a href="https://www.codecogs.com/eqnedit.php?latex=V(\epsilon,k,Z)&space;=&space;\max_{c,k'}&space;\ln(c_{i,t})&space;&plus;&space;\beta&space;V(\epsilon',k',Z')\\&space;s.t.&space;\\&space;c&space;&plus;&space;k'&space;=&space;rk&space;&plus;&space;(1-\tau)&space;w&space;\bar&space;l&space;\epsilon&plus;\mu&space;w&space;(1-\epsilon)&space;&plus;&space;(1-\delta)k&space;\\&space;k'&space;\leq&space;0" target="_blank"><img src="https://latex.codecogs.com/gif.latex?V(\epsilon,k,Z)&space;=&space;\max_{c,k'}&space;\ln(c_{i,t})&space;&plus;&space;\beta&space;V(\epsilon',k',Z')\\&space;s.t.&space;\\&space;c&space;&plus;&space;k'&space;=&space;rk&space;&plus;&space;(1-\tau)&space;w&space;\bar&space;l&space;\epsilon&plus;\mu&space;w&space;(1-\epsilon)&space;&plus;&space;(1-\delta)k&space;\\&space;k'&space;\leq&space;0" title="V(\epsilon,k,Z) = \max_{c,k'} \ln(c_{i,t}) + \beta V(\epsilon',k',Z')\\ s.t. \\ c + k' = rk + (1-\tau) w \bar l \epsilon+\mu w (1-\epsilon) + (1-\delta)k \\ k' \leq 0" /></a>
 where firms maximize profit give:
-$$ 
-r = z \alpha (\frac{K}{\bar l (1-u(z))})^{\alpha -1 } \\
-w = z (1-\alpha) (\frac{K}{\bar l (1-u(z))})^{\alpha}
-$$
+<a href="https://www.codecogs.com/eqnedit.php?latex=r&space;=&space;z&space;\alpha&space;(\frac{K}{\bar&space;l&space;(1-u(z))})^{\alpha&space;-1&space;}&space;\\&space;w&space;=&space;z&space;(1-\alpha)&space;(\frac{K}{\bar&space;l&space;(1-u(z))})^{\alpha}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?r&space;=&space;z&space;\alpha&space;(\frac{K}{\bar&space;l&space;(1-u(z))})^{\alpha&space;-1&space;}&space;\\&space;w&space;=&space;z&space;(1-\alpha)&space;(\frac{K}{\bar&space;l&space;(1-u(z))})^{\alpha}" title="r = z \alpha (\frac{K}{\bar l (1-u(z))})^{\alpha -1 } \\ w = z (1-\alpha) (\frac{K}{\bar l (1-u(z))})^{\alpha}" /></a>
 and government's budget constraint is:
 $$ \tau w \bar l (1-u(z)) = \mu w u(z)$$
 
