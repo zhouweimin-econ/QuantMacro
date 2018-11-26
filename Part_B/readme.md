@@ -1,5 +1,5 @@
 ### Part B by [Prof. Luis Rojas](https://sites.google.com/site/luiserojasweb)
-
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
 ---
 ### Useful Links:
 
