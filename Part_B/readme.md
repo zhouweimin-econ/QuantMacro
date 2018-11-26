@@ -1,11 +1,10 @@
 ### Part B by [Prof. Luis Rojas](https://sites.google.com/site/luiserojasweb)
-
+sample codes belong to [Christian Bayer](http://www.wiwi.uni-bonn.de/bayer/) and [Boston College ECON 861](https://www2.bc.edu/matteo-iacoviello/teach/0910/EC861.html)
 ---
 ### Useful Links:
 
 - [Wouter den Haan's Website](http://www.wouterdenhaan.com/papers.htm): matlab codes for solving Incomplete Markets model with aggregate uncertainty.
 
-- [Econ 861 by Matteo Iacoviello](https://www2.bc.edu/matteo-iacoviello/teach/0910/EC861.html): a version of the Krusell-Smith model matlab codes.
 
 ---
 #### PS1 and PS2 is about solving Models with HA - Krusell&Smith (1998)
