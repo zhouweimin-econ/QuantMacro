@@ -40,7 +40,14 @@ Notice that we use evenly-spaced grids (finer grids yield better approximations 
 
 ([For algorithm containing numerical optimization and root-finding, Matlab performs worse than Python and Julia](https://web.stanford.edu/~maliars/Files/Files/CEPR-DP13210.pdf))
 
-### 3. some others: Euler Equation iteration with projection methods
+### 3. some others methods
+See a comparison of different solution methods to solve Incomplete markets with Aggregate Risk: 
+Wouter den Haan, [Comparison of solutions to the incomplete markets model with aggregate uncertainty](http://www.wouterdenhaan.com/papers/comparison.pdf)
+
+### 3.1 Perturbation methods
+Kim, Kim, and Kollmann, [Solving the Incomplete Markets Model withAggregate Uncertainty Using a Perturbation Method](http://www.wouterdenhaan.com/suite/finalversion-KKK.pdf). 
+
+### 3.1 Euler Equation iteration with projection methods
 
 1. Just like previous algorithm, we still approximate Law of motion with our Perceived law of motion and update the parameters for simulation. 
 2. create state variables nodes: <a href="https://www.codecogs.com/eqnedit.php?latex=s_{i,t}=\{\epsilon_{i,t},&space;k_{i,t},s_{t}\}$&space;with&space;$s_t&space;=&space;\{&space;z_t,&space;K_t,&space;m_t&space;\}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?s_{i,t}=\{\epsilon_{i,t},&space;k_{i,t},s_{t}\}$&space;with&space;$s_t&space;=&space;\{&space;z_t,&space;K_t,&space;m_t&space;\}" title="s_{i,t}=\{\epsilon_{i,t}, k_{i,t},s_{t}\}$ with $s_t = \{ z_t, K_t, m_t \}" /></a> where <a href="https://www.codecogs.com/eqnedit.php?latex=m_{t&plus;1}&space;=&space;\Gamma&space;(z_{t&plus;1},z_t,&space;s_t;&space;\eta_{\Gamma})" target="_blank"><img src="https://latex.codecogs.com/gif.latex?m_{t&plus;1}&space;=&space;\Gamma&space;(z_{t&plus;1},z_t,&space;s_t;&space;\eta_{\Gamma})" title="m_{t+1} = \Gamma (z_{t+1},z_t, s_t; \eta_{\Gamma})" /></a>
