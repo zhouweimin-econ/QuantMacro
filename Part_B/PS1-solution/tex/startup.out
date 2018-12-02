@@ -1,0 +1,9 @@
+\BOOKMARK [1][-]{section.1}{Model\040Set-up}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{redBasic\040Algorithm\040Steps}{section.1}% 2
+\BOOKMARK [1][-]{section.2}{Initial\040values\040and\040exogenous\040process}{}% 3
+\BOOKMARK [1][-]{section.3}{Workers\040problem\040and\040simulation}{}% 4
+\BOOKMARK [2][-]{subsection.3.1}{Solve\040the\040model\040by\040VFI\040with\040the\040following\040parametrized\040expectations}{section.3}% 5
+\BOOKMARK [2][-]{subsection.3.2}{Solution\040of\040the\040model}{section.3}% 6
+\BOOKMARK [3][-]{subsubsection.3.2.1}{PEA}{subsection.3.2}% 7
+\BOOKMARK [2][-]{subsection.3.3}{Simulate\040the\040model\040for\0402000\040periods\040and\0401000\040individuals.}{section.3}% 8
+\BOOKMARK [3][-]{subsubsection.3.3.1}{Compare\040the\040welfare\040of\040the\040agents\040that\040have\040the\040model\040with\040the\040best\040fit\040and\040the\040agents\040with\040the\040expectations\040that\040are\040never\040updated}{subsection.3.3}% 9

@@ -1,0 +1,10 @@
+\babel@toc {english}{}
+\contentsline {section}{\numberline {1}Model Set-up}{2}{section.1}
+\contentsline {subsection}{\numberline {1.1}{\color {red}Basic Algorithm Steps}}{2}{subsection.1.1}
+\contentsline {section}{\numberline {2}Initial values and exogenous process}{4}{section.2}
+\contentsline {section}{\numberline {3}Workers problem and simulation}{6}{section.3}
+\contentsline {subsection}{\numberline {3.1}Solve the model by VFI with the following parametrized expectations}{6}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Solution of the model}{6}{subsection.3.2}
+\contentsline {subsubsection}{\numberline {3.2.1}PEA}{6}{subsubsection.3.2.1}
+\contentsline {subsection}{\numberline {3.3}Simulate the model for 2000 periods and 1000 individuals.}{8}{subsection.3.3}
+\contentsline {subsubsection}{\numberline {3.3.1}Compare the welfare of the agents that have the model with the best fit and the agents with the expectations that are never updated}{8}{subsubsection.3.3.1}

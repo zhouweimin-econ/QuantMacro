@@ -1,0 +1,25 @@
+\babel@toc {english}{}
+\contentsline {section}{\numberline {1}II.1. The recursive formulation.}{2}{section.1}
+\contentsline {section}{\numberline {2}II.2; II.3; II.4 Algorithm and STEPs}{2}{section.2}
+\contentsline {subsection}{\numberline {2.1}STEP.1 Generating state space}{2}{subsection.2.1}
+\contentsline {subsubsection}{\numberline {2.1.1}Discrete Method}{2}{subsubsection.2.1.1}
+\contentsline {subsubsection}{\numberline {2.1.2}Continuous Method}{2}{subsubsection.2.1.2}
+\contentsline {subsection}{\numberline {2.2}STEP.2 VFI and simulation paths of consumption and asset holding}{2}{subsection.2.2}
+\contentsline {subsubsection}{\numberline {2.2.1}Infinitely-lived household economy}{2}{subsubsection.2.2.1}
+\contentsline {subsubsection}{\numberline {2.2.2}The life-cycle economy}{2}{subsubsection.2.2.2}
+\contentsline {section}{\numberline {3}II.4 solution}{3}{section.3}
+\contentsline {subsection}{\numberline {3.1}II.4.1 No uncertainty: $\gamma =0, \sigma _y = 0 $}{3}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}1. infinite case}{3}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}2. finite case}{3}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}II.4.2 Uncertainty: $\gamma =0, \sigma _y = 0.1 $}{5}{subsection.3.4}
+\contentsline {subsubsection}{\numberline {3.4.1}1. plot infinitely and finite case of consumption policy function w.r.t state under two utility functions}{5}{subsubsection.3.4.1}
+\contentsline {subsubsection}{\numberline {3.4.2}2. time path consumption plot for T = 45: Error: Oscillation}{5}{subsubsection.3.4.2}
+\contentsline {subsubsection}{\numberline {3.4.3}3. compare the case with $\sigma =2,5,20$}{5}{subsubsection.3.4.3}
+\contentsline {subsubsection}{\numberline {3.4.4}4. increase the variance of the income shock from .1 to .5}{6}{subsubsection.3.4.4}
+\contentsline {subsubsection}{\numberline {3.4.5}5. increase the persistence of the income shock from 0 to .95}{6}{subsubsection.3.4.5}
+\contentsline {section}{\numberline {4}II.5 General Equilibrium}{8}{section.4}
+\contentsline {subsection}{\numberline {4.1}II.5.1 The simple ABHI model}{8}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}II.5.2 Solving Aiyagari (1994)}{10}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}II.5.3 An application}{12}{subsection.4.3}
+\contentsline {subsubsection}{\numberline {4.3.1}Describe your economic environment (preferences, technology and market structure)}{12}{subsubsection.4.3.1}
+\contentsline {subsubsection}{\numberline {4.3.2}stay tuned}{12}{subsubsection.4.3.2}

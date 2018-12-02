@@ -7,20 +7,18 @@ Most of my work was on MATLAB, since I could get deeper understanding when codin
 
 ---
 
-Guideline:
+PS1 is about approximation methods, such as Chebyshev polynomials;  
 
-PS1: multivariate and univariate approximation methods, such as Chebyshev polynomials;  
-
-PS2: different measure of Labor Share in US, UK, and Japan;
+PS2 is to constructing different measure of Labor Share in US, UK, and Japan;
 
 PS3:
 - compute different set-up in an infinite periods of Representative Agent economy;
-- (Root-finding Algorithm) 2-period Heterogeneous Agent economy with different initial wealth and productivity shocks. ( In the HA, we are required to compute GE, hence, need an interest rate to clear the asset market.)
+- 2-period Heterogeneous Agent economy with different initial wealth and productivity shocks. ( In the HA, we are required to compute GE, hence, need an interest rate to clear the asset market.)
 
 PS4 is Value Function Iteration in both Deterministic and Stochastic Growth Model.
 - updated: added Tax part.
 
-PS5(final project): 
+PS5 is our final project, I uploaded a first version on 1 Nov, 2018. Expected to finish before January, 2019.
 - A simple consumption and saving model with 2-state transition income matrix and natural borrowing constraint. (Partial Equilibrium)
 - Solve the ABHI Model in various cases. (General Equilibrium)
 
