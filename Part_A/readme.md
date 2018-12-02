@@ -20,7 +20,7 @@ PS3:
 PS4 is Value Function Iteration in both Deterministic and Stochastic Growth Model.
 - updated: added Tax part.
 
-PS5 is our final project, I uploaded a first version on 1 Nov, 2018. Expected to finish before January, 2019.
+PS5(final project): 
 - A simple consumption and saving model with 2-state transition income matrix and natural borrowing constraint. (Partial Equilibrium)
 - Solve the ABHI Model in various cases. (General Equilibrium)
 
