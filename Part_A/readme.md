@@ -7,13 +7,15 @@ Most of my work was on MATLAB, since I could get deeper understanding when codin
 
 ---
 
-PS1 is about approximation methods, such as Chebyshev polynomials;  
+Guideline:
 
-PS2 is to constructing different measure of Labor Share in US, UK, and Japan;
+PS1: multivariate and univariate approximation methods, such as Chebyshev polynomials;  
+
+PS2: different measure of Labor Share in US, UK, and Japan;
 
 PS3:
 - compute different set-up in an infinite periods of Representative Agent economy;
-- 2-period Heterogeneous Agent economy with different initial wealth and productivity shocks. ( In the HA, we are required to compute GE, hence, need an interest rate to clear the asset market.)
+- (Root-finding Algorithm) 2-period Heterogeneous Agent economy with different initial wealth and productivity shocks. ( In the HA, we are required to compute GE, hence, need an interest rate to clear the asset market.)
 
 PS4 is Value Function Iteration in both Deterministic and Stochastic Growth Model.
 - updated: added Tax part.
