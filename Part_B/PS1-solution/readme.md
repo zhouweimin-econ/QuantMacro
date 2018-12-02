@@ -2,6 +2,10 @@
 
 Both PS1 and PS2 are solving **Heterogenous Agents on Incomplete Markets with Idiosyncratic shocks and Aggregate Uncertainty** based on  Krusell&Smith (1998) version
 
+Comment: for a complete illustration of the figure interpretation, one could refer to [Dynamic General Equilibrium Modelling, Computational Methods and Applications(2nd)](https://www.wiwi.uni-augsburg.de/vwl/maussner/dge_buch/dge_book_2ed/downloads_2nd/), by Burkhard Heer and Alfred Maussner, in section 8.2 <Transition Dynamics of Krusell and Smith (1998) model>, *page 397-404*. 
+
+---
+
 **Basic Set-up**
 
 - employment shocks (<a href="https://www.codecogs.com/eqnedit.php?latex=$\epsilon_{i,t}\in&space;\{0,1\}$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$\epsilon_{i,t}\in&space;\{0,1\}$" title="$\epsilon_{i,t}\in \{0,1\}$" /></a>)
@@ -81,9 +85,3 @@ where the expectation is transition matrix times each possible state would happe
 
 ### 5.2. [explicit aggregation](http://www.wouterdenhaan.com/numerical/methodsheteroxpa.pdf)
 ### ...
-
----
-
-Note:
-
-For a complete illustration of the figure interpretation, one could refer to [Dynamic General Equilibrium Modelling, Computational Methods and Applications(2nd)](https://www.wiwi.uni-augsburg.de/vwl/maussner/dge_buch/dge_book_2ed/downloads_2nd/), by Burkhard Heer and Alfred Maussner, in section 8.2 <Transition Dynamics of Krusell and Smith (1998) model>, *page 397-404*. 
