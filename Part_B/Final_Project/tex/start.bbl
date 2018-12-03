@@ -1,0 +1,19 @@
+\begin{thebibliography}{1}
+
+\bibitem{algan2008solving}
+Yann Algan, Olivier Allais, and Wouter~J Den~Haan.
+\newblock Solving heterogeneous-agent models with parameterized cross-sectional
+  distributions.
+\newblock {\em Journal of Economic Dynamics and Control}, 32(3):875--908, 2008.
+
+\bibitem{reiter2009solving}
+Michael Reiter.
+\newblock Solving heterogeneous-agent models by projection and perturbation.
+\newblock {\em Journal of Economic Dynamics and Control}, 33(3):649--665, 2009.
+
+\bibitem{winberry2018method}
+Thomas Winberry.
+\newblock A method for solving and estimating heterogeneous agent macro models.
+\newblock 2018.
+
+\end{thebibliography}
