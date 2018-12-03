@@ -4,6 +4,7 @@
 
 ### Intro
 Our course is separated into two parts.
+
 Part A is from basic numerical methods to
 solution of Representative Agent Models (permanent income, life-cycle) with VFI, PFI;
 and eventually going to Heterogenous Agents with Incomplete Markets.
