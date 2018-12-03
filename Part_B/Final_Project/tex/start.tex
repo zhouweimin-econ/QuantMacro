@@ -1,0 +1,97 @@
+\documentclass[a4paper, 12pt]{article}
+\setlength{\parindent}{4ex}
+\usepackage{natbib}
+%\bibliographystyle{apa}
+\bibliographystyle{plain}
+\usepackage{amsmath,amssymb,amsfonts,amsthm, amstext}    
+\usepackage{graphicx,subcaption} 
+%\usepackage[list=true]{subcaption} 
+%\usepackage{subfig}
+\usepackage{hyperref}                          
+\usepackage[font = bf, labelfont = bf]{caption}
+\usepackage{url}
+\usepackage{appendix}
+\usepackage{pdflscape}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{float}
+\usepackage[onehalfspacing]{setspace}
+\usepackage{breqn}
+\usepackage{tabu}
+\usepackage{indentfirst}
+\usepackage{fullpage}
+\usepackage{comment}
+\usepackage{array}   % for \newcolumntype macro
+\newcolumntype{C}{>{$}c<{$}} % math-mode version of "l" column type
+\usepackage[automark]{scrpage2}
+\usepackage{multirow}
+\usepackage{footnote}
+\usepackage{enumitem}
+\usepackage{nicefrac}
+\usepackage{dsfont}
+\usepackage{multirow}
+\makesavenoteenv{tabular}
+\pagestyle{scrheadings}
+\automark{section}
+\clearscrheadings
+\ohead{\headmark}
+
+\setlength{\headheight}{1.1\baselineskip}
+\voffset=-2cm 
+\hoffset=-3cm
+\textheight24cm
+\textwidth15.5cm
+\topmargin1cm
+\oddsidemargin3cm
+\evensidemargin3cm
+\makeatletter
+%\setlength{\@fptop}{0pt}
+\makeatother
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\thispagestyle{empty}
+\input{sections/titlepage}
+\input{sections/abstract}
+\pagenumbering{roman}
+
+
+\begin{comment}
+\newpage
+\singlespacing
+\tableofcontents
+\onehalfspacing
+\clearpage
+\pagenumbering{roman}   % define page number in roman style
+\setcounter{page}{1}    % start page numbering
+\newpage
+\addcontentsline{toc}{section}{List of Tables}
+\listoftables
+\addcontentsline{toc}{section}{List of Figures}
+\listoffigures
+\end{comment}
+
+\newpage
+\pagestyle{plain}
+\setcounter{page}{1}    % start page numbering anew
+\pagenumbering{arabic}  % page numbers in arabic style
+
+%\input{sections/introduction} %This eliminated from chris. Dont do it for the thesis.
+%\input{sections/algorithm}
+%\input{sections/calibration}
+%\input{sections/conclusion}
+
+\input{sections/body}
+%\input{sections/results2}
+\newpage
+%\bibliography{sections/references}
+\bibliography{sections/final_project.bib}
+%\bibliography{/Users/zhouweimin/Dropbox/Reference_Mendeley/Term_Paper_ref.bib}
+%\clearpage
+\newpage
+%\appendix
+%\input{sections/appendix}
+\end{document}

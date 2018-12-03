@@ -1,0 +1,119 @@
+%%%% Input Codes %%%%   
+% <mcode.sty> required for Matlab codes
+% template for inserting codes:
+
+% \lstset{numbers=left,numberstyle= \tiny}
+% \lstinputlisting[firstline=6, lastline=15]{/Users/name/Desktop/FILENAME.M}
+
+% or:
+
+%\lstset{numbers=left,numberstyle= \tiny}
+%\begin{lstlisting}[xleftmargin=2em,xrightmargin=2em,aboveskip=1em]
+%clc; clear all; close all;
+%\end{lstlisting}
+
+\section{Basic Model Set up}
+
+The key technical things for Heterogeneous Agent Models are distribution of agents, which realtes to individual choices and aggregate variables is an {\color{red} infinite dimensional object}(many state variables). 
+
+For every type $i$ agent we have the general formula of equilibrium: 
+\[ 
+E_t f(x^i_{t-1}, x^i_{t}, x^i_{t+1},u^i_{t},u^i_{t+1},x_{t-1}, x_{t}, x_{t+1},u_{t},u_{t+1})=0, 
+\]
+
+
+where, $x$ is endogenous variables, $u$ denotes exogenous. 
+
+And for aggregate and individual endogenous variables, we have: 
+\[
+x_t \equiv \int \gamma (x_t^i)d_t (i)di \quad \text{with } \int d_t (i)di = 1 
+\]
+
+Law of motion of the density function (share of each type $i$ agent): 
+\[ d_t (\cdot) = \mathcal{P}(d_{t-1}(\cdot), u_t)\]
+
+\subsection{Krusell\&Smith Model}
+
+Individual endogenous variables: $x^i_t = \{c^i_t,a^i_t\}$;\\
+
+Aggregate endogenous variables: $x_t = W_t,R_t,K_t,Y_t$;\\
+
+Exogenous variables: idiosyncratic shocks $s^i_t$ and TFP shocks $z_t$.\\
+
+HH foc: 
+\begin{align}
+(c^i_t)^{-\sigma} = \beta E_t R_{t+1}(c^i_{t+1})^{-\sigma} \quad \text{if } a^i_t > a_{min} \\
+(c^i_t)^{-\sigma} > \beta E_t R_{t+1}(c^i_{t+1})^{-\sigma} \quad \text{if } a^i_t = a_{min} \\
+c^i_t + a^i_t = s^i_t W_t + a^i_{t-1} R_{t-1}
+\end{align}
+
+by Firm Maximization problem: 
+\begin{align}
+W_t = (1-\alpha)Y_t/L_{t} \\
+R_t = \alpha Y_t/K_{t-1} + （1- \delta）
+\end{align} 
+
+
+And market clearing condition for assets: $\int a^i_t d_t (i)di = K_t$\\
+
+Above is a way of describing the models very generally. In {\color{red} PS1 and PS2}, we solve KS model by using \textbf{Krusell-Smith Algorithm with conventional VFI}, in the Literature later on, there's some extension based on Krusell-Smith Algorithm also. In this Final Project, I want to implement another which is frequently used recently in the research, the projection and perturbation methods.\\
+
+\section{Literature Review}\label{secLiter}
+
+One strand of literature approximates the cross-sectional distribution using aparametric family, like Algan, Allais and Den Haan (2008)\cite{algan2008solving} in which they solve for the dynamics of the distribution using a globally accurate projection technique.\\
+
+Another strand of literature uses a mix of globally accurate and locally accurate approximations to solve for the dynamics of heterogeneous agent models like Reiter (2009)\cite{reiter2009solving}, he solves the individual problem with a projection method, and approximates the law of motion of aggregate variables and the distribution with a perturbation method.\\
+
+However, approximates the distribution with a fine histogram, which requires many parameters to achieve acceptable accuracy. This limits Reiter (2009)\cite{reiter2009solving} approach to problems which have a low-dimensional individual state space because the size of the histogram grows exponentially in the number of individual states. More advanced things have been done by Winberry, Thomas (2018)\cite{winberry2018method}, where he approximates the distribution with a flexible parametric family, reducing its dimensionality to a finite set of endogenous parameters, and solve for the dynamics of these endogenous parameters by perturbation. This part of work can be found in  \href{http://faculty.chicagobooth.edu/thomas.winberry/research/index.html}{Winberry's website}\footnote{Thomas also provide codes for Benchmark RBC model with Firm Heteregeneity}
+
+\section{Projection and Perturbation: Reiter Method}
+
+Now, we only {\color{red}discretize individual state space into grids}, and also the density function such that $\sum_{i=1}^{N} d^i_t = 1$ which is like discretizing the continous distribution with "histograms". And then, we could approximate individual policy function using a projection method:
+
+\[ 
+x^i_t \approx \tilde{g}(x^i_{t-1},u^i_t, \theta_t) \quad \text{for } x^i_t \equiv g(x^i_{t-1}, u^i_t, x_{t-1},u_t,d_{t-1}), 
+\]
+
+where $\theta_t$ is the vector of coefficients. 
+
+\subsection{The Algorithm}
+
+\subsubsection*{Step 1: Solve for SS}
+
+by discretization, we can solve individual policy function $x^i_t \approx \tilde{g}(x^i_{t-1},u^i_t, \theta_t)$ with a projection method, and use this policy function to compute the stationary distribution of agents
+
+\subsubsection*{Step 2: compute First Order Approximation of the model}
+
+\subsubsection*{Step 3: Solve the linearized system of equation }
+Now, by "histogram" the density function, aggregate endogenous variable $x_t$ can be approximated  as $\tilde{x_t} = (\theta_t, x_t, d_t)$, and update by:
+\[ \tilde{x_t} \equiv G_x \tilde{x_{t-1}} + G_u u_t\]
+
+
+
+
+
+\begin{figure}[H]
+\caption{Bond-price menu}
+\hspace{-2.0cm}
+\begin{center}
+\begin{tabular}{cc}
+\multicolumn{1}{c}{(a) } &  
+\multicolumn{1}{c}{(b) }\\
+\includegraphics[angle=0,width=.5\textwidth]{img/.png}   & 
+\includegraphics[angle=0,width=.5\textwidth]{img/.png} 
+\end{tabular}
+\end{center}
+\label{fig:4}
+\end{figure}
+
+
+
+\begin{figure}[H]
+\caption{}
+\hspace{-2.0cm}
+\begin{center}
+\includegraphics[angle=0,width=.67\textwidth]{img/.png}
+\end{center}
+\end{figure}
+
+ 
