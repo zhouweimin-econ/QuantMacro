@@ -77,7 +77,7 @@ eg.2: **no parameterization of the cross-sectional distribution**: derives the a
 
 **4.4 Mixture of Perturbation and Projection methods**:
 
-I will replicate this method in my Final Project of Unit 2. A guide to understand [different methods on solving K&S model](http://www.econ.nyu.edu/user/violante/NYUTeaching/QM/Spring15/Lectures/Lecture14_KS_Slides.pdf)
+I will replicate this method in my [Final Project of Unit 2](https://github.com/zhouweimin233/QuantMacro/tree/master/Part_B/Final_Project). A guide to understand [different methods on solving K&S model](http://www.econ.nyu.edu/user/violante/NYUTeaching/QM/Spring15/Lectures/Lecture14_KS_Slides.pdf)
 
 eg.1: [Reiter Michael, 2009. "Solving heterogeneous-agent models by projection and perturbation," Journal of Economic Dynamics and Control, Elsevier, vol. 33(3), pages 649-665, March.](https://ideas.repec.org/a/eee/dyncon/v33y2009i3p649-665.html)
 
