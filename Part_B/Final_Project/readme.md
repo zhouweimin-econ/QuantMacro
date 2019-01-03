@@ -10,6 +10,6 @@ I'm going to compare the following different solution methods:
 
 **0. Approximate distribution using a few moments (Krusell and Smith Algorithm)**
 
-**1. Perturbation (LeGrand and Ragot)**
+**1. Perturbation ([LeGrand and Ragot](http://www.wouterdenhaan.com/teach/legrandragot.pdf))**
 
 **2. Projection + Perturbation (Reiter)**
