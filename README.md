@@ -59,7 +59,7 @@ eg.1: [Christopher Carroll’s endogenous gridpoint method](http://econ.jhu.edu/
 We learned this method during our Macro II by using Dynare, billions of resources could be found via Internet. 
 
 
-**4.2 Perturbation methods**
+**4.2 Perturbation methods** (for more details, go to [Part_B/Final Project](https://github.com/zhouweimin233/QuantMacro/edit/master/Part_B/Final_Project) )
 
 eg.1:  Perturbation methods of solving Krusell&Smith(1998): [Solving the Incomplete Markets Model withAggregate Uncertainty Using a Perturbation Method. Kim, Kim, and Kollmann](http://www.wouterdenhaan.com/suite/finalversion-KKK.pdf). 
 
@@ -69,7 +69,7 @@ eg.3 (can be <10 seconds MATLAB): with the borrowing constraint replaced by a pe
 - See a comparison of different solution methods to solve Incomplete markets with Aggregate Risk (Krusell&Smith(1998) version):
 [Comparison of solutions to the incomplete markets model with aggregate uncertainty. Wouter den Haan](http://www.wouterdenhaan.com/papers/comparison.pdf)
 
-**4.3 Projection methods** 
+**4.3 Projection methods**  (for more details, go to [Part_B/Final Project](https://github.com/zhouweimin233/QuantMacro/edit/master/Part_B/Final_Project) )
 
 eg.1: **parameterization of the cross-sectional distribution**: do not obtain next period's cross-sectional moments by simulation techniques,but by explicitly integrating the individual choices;
 
