@@ -1,16 +1,16 @@
 # Fdb version 3
-["bibtex start"] 1543838240 "start.aux" "start.bbl" "start" 1543838241
+["bibtex start"] 1543838240 "start.aux" "start.bbl" "start" 1546886648
   "/usr/local/texlive/2018/texmf-dist/bibtex/bst/base/plain.bst" 1480098433 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
   "sections/references.bib" 1543830854 835 b1e97ad623e37004469ee22338a74b8f ""
   "start.aux" 1543838241 1712 f638721a44999b3ce17d9fb3a6400f33 ""
   (generated)
   "start.bbl"
   "start.blg"
-["xdvipdfmx"] 1543838241 "start.xdv" "start.pdf" "start" 1543838241
+["xdvipdfmx"] 1546886647 "start.xdv" "start.pdf" "start" 1546886648
   "start.xdv" 1543838241 67936 c7f5cb7b2b0a5846a81fe6a243b150a7 "xelatex"
   (generated)
   "start.pdf"
-["xelatex"] 1543838240 "start.tex" "start.xdv" "start" 1543838241
+["xelatex"] 1543838240 "start.tex" "start.xdv" "start" 1546886648
   "/usr/local/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1480098689 1528 f853c4d1b4e0550255e02831fdc8496f ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1480098698 1004 54797486969f23fa377b128694d548df ""
@@ -177,7 +177,7 @@
   "start.out" 1543838241 404 0385d500ed199bc222eaa0cddcc187e9 ""
   "start.tex" 1543834786 2341 39fe9e3bfe5e8b2d2e6da1272368d32f ""
   (generated)
-  "start.out"
   "start.xdv"
-  "start.log"
+  "start.out"
   "start.aux"
+  "start.log"
