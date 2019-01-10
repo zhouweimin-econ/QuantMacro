@@ -12,6 +12,9 @@
 %clc; clear all; close all;
 %\end{lstlisting}
 
+Start by \href{http://www.econ.yale.edu/smith/paper15.pdf}{Krusell and Smith (2006)}, and learning about heterogeneous agent models \footnote{ Wouter den Haan's \href{http://www.wouterdenhaan.com/numerical/introhetero.pdf}{introductory slides}. There is also a handbook chapter on solving and simulating models with heterogeneous agents by \href{http://www.wouterdenhaan.com/numerical/handbookhetero.pdf}{Algan et al (2010)}.}
+
+
 \section{Basic Model Set up}
 
 The key technical things for Heterogeneous Agent Models are distribution of agents, which relates to individual choices and aggregate variables is an {\color{red} infinite dimensional object}(many state variables). 
@@ -68,9 +71,18 @@ One strand of literature approximates the cross-sectional distribution using a p
 
 Another strand of literature uses a mix of globally accurate and locally accurate approximations to solve for the dynamics of heterogeneous agent models like Reiter (2009)\cite{reiter2009solving}, he solves the individual problem with a projection method, and approximates the law of motion of aggregate variables and the distribution with a perturbation method.\\
 
+For projection (or collocation) method, it uses the 'global' behavior of the functional equation to approximate solution, which requires finding zeros of non-linear equations\footnote{a disadvantage is time-consuming of iterative methods of doing this}, and can easily adapt to situations the policy rule is not continuous or simply non-differentiable (i.e., occasionally binding and zero lower bound). And for perturbation method, which uses Taylor series expansion (computed using implicit function theorem) to approximate the model solution, which can implement procedure using non-iterative methods (much more faster) but as we've encountered in Part\_A of our Quant Macro Session, the Taylor approximation or even Chebyshev approximation does not work when there are important non-differentiabilities such as zero lower bound or occasionally binding. 
+
+Thankfully, in K\&S model, we don't impose non-differentiable constraints, thus, 1st order perturbation is enough to capture the properties.  
+
 However, approximates the distribution with a fine histogram, which requires many parameters to achieve acceptable accuracy. This limits Reiter (2009)\cite{reiter2009solving} approach to problems which have a low-dimensional individual state space because the size of the histogram grows exponentially in the number of individual states. More advanced things have been done by Winberry, Thomas (2018)\cite{winberry2018method}, where he approximates the distribution with a flexible parametric family, reducing its dimensionality to a finite set of endogenous parameters, and solve for the dynamics of these endogenous parameters by perturbation. This part of work can be found in  \href{http://faculty.chicagobooth.edu/thomas.winberry/research/index.html}{Winberry's website}\footnote{Thomas also provide codes for Benchmark RBC model with Firm Heterogeneity}
 
-\section{Projection and Perturbation: Reiter Method}
+\section{Different Solution Methods}
+\subsection{Krusell and Smith Algorithm}
+
+We've already encountered the KS algorithm for solving HA DSGE model. Den Haan, Wouter (2010)\cite{den2010comparison} make very deep analysis about different algorithm on solving KS models. for KS algorithm, please see \href{https://github.com/davidrpugh/pyeconomics/wiki/Krusell-Smith-Algorithm}{Krusell Smith Algorithm} for more details
+
+\subsection{Projection and Perturbation: Reiter Method}
 
 Now, we only {\color{red} discretized individual state space into grids}, and also the density function such that $\sum_{i=1}^{N} d^i_t = 1$ which is like discretization the continuous distribution with "histograms". And then, we could approximate individual policy function using a projection method:
 
@@ -79,8 +91,6 @@ x^i_t \approx \tilde{g}(x^i_{t-1},u^i_t, \theta_t) \quad \text{for } x^i_t \equi
 \]
 
 where $\theta_t$ is the vector of coefficients. 
-
-\subsection{The General Algorithm}
 
 \subsubsection*{Step 1: Solve for SS}
 
@@ -103,7 +113,7 @@ where distribution of agents evolves accroding to $d_t = \mathcal{P'} d_{t-1}$.
 
 Now, we check market clearing condition: $residuals \equiv K - \sum_{i=1}^{N}a^i d^i$
 
-\textbf{Recap about the selection on} $\mathcal{P}_{i'|i}$: if we assume H=2 histories of agents are the same, then we have: 
+\textbf{Recap about the selection} on $\mathcal{P}_{i'|i}$: if we assume H=2 histories of agents are the same, then we have: 
 \[ 
 \mathcal{P}_{i'|i}=
 \begin{bmatrix}
@@ -132,31 +142,51 @@ Now, by "histogram" the density function, aggregate endogenous variable $x_t$ ca
 \[ \tilde{x}_t \equiv G_x \tilde{x}_{t-1} + G_u u_t\]
 
 \newpage
-\section{Quantitative Performance}
-matlab file \textbf{Step.1 Solving Steady State}
-
-%\begin{figure}[H]
-%\caption{Bond-price menu}
-%\hspace{-2.0cm}
-%\begin{center}
-%\begin{tabular}{cc}
-%\multicolumn{1}{c}{(a) } &  
-%\multicolumn{1}{c}{(b) }\\
-%\includegraphics[angle=0,width=.5\textwidth]{img/.png}   & 
-%\includegraphics[angle=0,width=.5\textwidth]{img/.png} 
-%\end{tabular}
-%\end{center}
-%\label{fig:4}
-%\end{figure}
 
 
+\section{Quantitative Performance of Reiter method}
 
-%\begin{figure}[H]
-%\caption{}
-%\hspace{-2.0cm}
-%\begin{center}
-%\includegraphics[angle=0,width=.67\textwidth]{img/.png}
-%\end{center}
-%\end{figure}
+In practice, I use the following files (/matlab/Reiter)for computing, there's two important steps need to notice, one is the Algorithm, which we first compute the general equilibrium steady states, and then compute dynamics; another one is when computing dynamics, we use 1st order perturbation, whose codes could be found on Internet: 
 
- 
+% Please add the following required packages to your document preamble:
+% \usepackage{booktabs}
+\begin{table}[]
+\begin{tabular}{@{}cccc@{}}
+\toprule
+file name          & functions                                                                                                                              &         &                                                                                  \\ \midrule
+menufun\_Reiter.m  & main file                                                                                                                              &         &                                                                                  \\
+setup\_KS          & KS model parameters setup                                                                                                              & Step. 0 &                                                                                  \\
+model\_stst.m      & compute SS given initial guess                                                                                                         & Step. 1 & \begin{tabular}[c]{@{}c@{}}require:\\ EulerResid.m\\ BuildTrans.m\end{tabular} \\
+linear\_solution.m & \begin{tabular}[c]{@{}c@{}}supplementary file from Sims gensys \\ for computing dynamics\\ , using 1st order perturbation\end{tabular} & Step. 2 & \begin{tabular}[c]{@{}c@{}}require:\\ gensys.m \\ jacob.m\end{tabular}           \\
+impresp\_sims.m    & compute IRF                                                                                                                            & Output  &                                                                                  \\ \bottomrule
+\end{tabular}
+\end{table}
+
+
+The corresponding heterogeneous assets distribution among agents and the Impulse Response function with respect to shocks are attached in the following:
+
+\begin{figure}[H]
+\caption{Asset Distribution}
+\hspace{-2.0cm}
+\begin{center}
+\includegraphics[angle=0,width=.67\textwidth]{img/1.jpg}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\caption{IRF by Reiter methods}
+\hspace{-2.0cm}
+\begin{center}
+\includegraphics[angle=0,width=.67\textwidth]{img/2.jpg}
+\end{center}
+\end{figure}
+
+Apart from the \href{http://www.wouterdenhaan.com/datasuite.htm}{corresponding websites} of Den Haan, Wouter (2010)\cite{den2010comparison}, which offers original Reiter codes, and others using different algorithms. I also list some resources about using Reiter Method to solve different set-up of DSGE models:
+
+\begin{itemize}
+\item \href{https://github.com/jeromematthewcelestine/hetagentsaggshocks}{Solves a simple model of firm investment with persistent aggregate and idiosyncratic productivity shocks}
+\item \href{https://github.com/jeromematthewcelestine/hetagentsaggshocks}{Bayesian estimation of a heterogeneous agent DSGE model using the Reiter (2009) solution method}
+\item \href{https://github.com/sebgraves/KS_and_Reiter}{Guide for solving the incomplete markets model using the methods of Krusell \& Smith (1998) and Reiter (2009)}
+\end{itemize}
+
+There's also a recent revised method on solving KS model by Thomas Winberry (2016), and I attach  the related files, in the future, I will learn about this methods.  
