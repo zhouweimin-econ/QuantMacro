@@ -12,7 +12,7 @@ PS2: based on PS1, endogenous labor supply choice
 
 PS3: quantitative model of soverign debt 
 
-Final_Project: Try to solve stochastic RBC model with Projection and Perturbation methods
+Final_Project: solve DSGE model with Reiter Method
 
 
 ---
