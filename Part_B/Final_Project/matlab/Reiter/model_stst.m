@@ -24,19 +24,13 @@ R = 1+alf*Zbar*K_stst^(alf-1)-delta;
 W = (1-alf)*Zbar*K_stst^alf; 
 AggVar=[R;W]; % aggregate capital and productuvity in steady state
 
-% EulerResiduals_stst = @(x) EulerResiduals(x, x, AggVar, AggVar);
-% opt_options = [];%optimset('Display','iter');
-% coeff = fsolve(EulerResiduals_stst, coeffguess,opt_options);
-% coeffguess= coeff;
-% [~,~,Pmat] = EulerResiduals(coeff, coeff, AggVar, AggVar);
-
 % options for iterative scheme
 iter = 1;           % initialize counter;
 maxiter = 10000;     % maximum number of iterations
 tol = 1e-12;         % convergence criterion
 smooth = 0.5;       % weight on new coeff when updating guess
 
-while iter<maxiter  
+while iter<maxiter  %start recursive
     [resid,coeff_new,Pmat] = EulerResiduals(coeff, coeff, AggVar, AggVar);
     diff = max(abs(resid));
     

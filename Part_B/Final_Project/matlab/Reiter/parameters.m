@@ -1,36 +1,36 @@
-%% SET THE PARAMETERS
+%% KS parameters setup: Reiter version
+% require matlab 2016+ 
+
 global n indx nodes Grid
 global betta alf sig delta Zbar rhoz sigma_epsz TransMat_IdShock amin amax
 
-% Number of Variables, Shocks, Expectation Errors
-n.I      = 100;  % number of points for asset distribution (we are assuming that we use the same points for consumption choice and distribution)
-n.S      = 2;    % number of possible values of idiosyncratic shock
-n.Aggr   = 6;    % number of aggregate variables 
+n.I      = 100;  % points for asset distribution
+n.S      = 2;    % idiosyncratic shock
+n.Aggr   = 6;    % aggregate states 
+n.Shocks = 1;    % aggregate shocks 
 
-n.Shocks = 1; % number of i.i.d. aggregate shocks
 n.ExpErr = n.I*n.S; % number of equations with expectations 
 
-% STRUCTURAL
-%betta=.99;   % Discount Factor
-alf=0.3;      % Capital Income Share
-sig=1;        % Risk Aversion
-delta=0.025;  % Depreciation rate
-Zbar = (1/.99 - (1-delta))/alf; 
+%betta = .99;   % Discount Factor
+alf     = 0.3;      % Capital Income Share
+sig     = 1;        % Risk Aversion
+delta   = 0.025;  % Depreciation rate
 
-% AGGREGATE SHOCKS
-rhoz = 0.9;    % Persistence of shock
-sigma_epsz=1;  % std dev of shock (only usefull to scale impulse responses)
+% AggrShock = (1-rhoz)*Zbar + rhoz*AggrShock_lag + epsz
+Zbar    = (1/.99 - (1-delta))/alf; 
+rhoz    = 0.9;    
+sigma_epsz=1;  % std.dev 
 
-% IDIONSYNCRATIC SHOCK
-sigma_idShock = 0.1;      % standard deviation of idiosyncratic shocks
-rho_idShock  = 0.9;      % persistence of (log) idionsyncratic shocks
+% idShock = rho_idShock*idShock_lag + eps_idShock
+sigma_idShock = 0.1; % std.dev
+rho_idShock  = 0.9;   
 
 % AMPLITUDE OF THE GRID ON ASSETS
 amin  = 0;            % lower bound on individual assets
 amax  = 5;            % upper bound on individual assets 
 
 
-%% LABELS of VARIABLES
+%% Labels
 vlab    = ...      
 char('Consumption ',...
 'Investment',...
