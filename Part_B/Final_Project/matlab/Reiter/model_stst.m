@@ -1,58 +1,51 @@
-function [res,coeff,distr] = model_stst(bettaguess)
-% Function to compute the steady state of the Krusell-Smith model
-% Steps: for a given guess of aggregate capital K 
-% 1) solve the individual problem 
-% 2) calculate steady state distribution (s) of agents on (assets, idShock)
-% 3) check if the market clearing condition K=sum(s.*assets) is satisfied
+%{
+ Final Project of Part B Quantitative Macroeconomics, UAB
+ Weimin Zhou
+ Jan, 2019
+ Descriptions:
 
-% Input: the guess of aggregate capital (K)
-% Output: 
-%       - resid: residual in the market clearing condition
-%       - coeff: coefficients solving the individual problem
-%       - s: stationary distribution
+function required in Step 1: compute SS
+
+given guess K 
+ 1) solve HH, get coefficients
+ 2) compute stationary distribution of agents on (assets, idShock)
+ 3) check if residual of Market Clearing condition
+%}
+function [res,coeff,distr] = model_stst(bettaguess)
 global n indx nodes Grid
 global betta alf sig delta Zbar rhoz sigma_epsz TransMat_IdShock amin amax
 global coeffguess distrguess
+%% 1) solve HH, get coefficients
 
-%% Step 1: Solve the individual problem (i.e. find coeff), for given aggregate variables (K)
-
-% initialize variabeles
+% initialize 
 coeff = coeffguess; 
 betta = exp(bettaguess);
 K_stst = 1;
 R = 1+alf*Zbar*K_stst^(alf-1)-delta;
 W = (1-alf)*Zbar*K_stst^alf; 
-AggVar=[R;W]; % aggregate capital and productuvity in steady state
+AggVar=[R;W]; 
 
-% options for iterative scheme
-iter = 1;           % initialize counter;
-maxiter = 10000;     % maximum number of iterations
-tol = 1e-12;         % convergence criterion
+
+iter = 1;maxiter = 1000; tol = 1e-10;     
 smooth = 0.5;       % weight on new coeff when updating guess
 
-while iter<maxiter  %start recursive
+while iter<maxiter 
     [resid,coeff_new,Pmat] = EulerResiduals(coeff, coeff, AggVar, AggVar);
     diff = max(abs(resid));
     
     if diff<tol
-        coeffguess = coeff_new; %store coefficients (coeffguess is global: speed up code for next iteration on K) 
+        coeffguess = coeff_new;
         break; 
     end
     
-    %fprintf('Iter: %d, Max. diff.: %g \n',iter, diff);
+    fprintf('Iter: %d, Max. diff.: %g \n',iter, diff);
     iter = iter + 1;
     coeff  = smooth*coeff_new + (1-smooth)*coeff; 
 end
+%% 2) compute stationary distribution of agents on (assets, idShock)
+crit = 1; distr= distrguess;
 
-if iter == maxiter; error('Individual Problem not solved'); end
-
-%% Step 2: Find steady state distribution of agents, using iteration
-% ... alternative: solve system (I-P)*s=0, 
-% ... i.e. find eigenvector of P associated with unit eigenvalues (very slow with large matrices)
-
-crit = 1; % initialize stopping criterion (arbitrary large number)
-distr= distrguess;
-while crit>1e-12
+while crit>1e-10
     distr_new = Pmat'*distr;
     distr_new = distr_new/sum(distr_new);
     crit=norm(distr_new - distr);
@@ -60,7 +53,8 @@ while crit>1e-12
 end
 
 distrguess=distr;
-%% Step 3: verify guess
-Knew = sum(distr.*Grid(:,1));
-res = (Knew - K_stst); % check if guess was correct
+%% 3) check if residual of Market Clearing condition
+
+Knew = sum(distr.*Grid(:,1)); % newasset = distribution .* assets
+res = (Knew - K_stst);       
 

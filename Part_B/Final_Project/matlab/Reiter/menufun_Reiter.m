@@ -1,7 +1,22 @@
-% Heterogenous Agent DSGE model using 1st-order Perturbation (Reiter Method)
-% Model set-up: Krusell-Smith Model
-% Weimin Zhou
-% codes references see my report file: Final_Project.pdf
+%{
+ ________________________________________________________
+    
+ Final Project of Part B Quantitative Macroeconomics, UAB
+ 
+ Weimin Zhou
+ Jan, 2019
+ ________________________________________________________
+ 
+ Descriptions:
+  the main file
+    Heterogenous Agent DSGE model using Reiter Method
+    Model set-up: Krusell-Smith Model
+    codes references see my report file: Final_Project.pdf
+  Algorithm:
+  Step.1 compute the steady states with a sequence of guess and parameters
+  Step.2 solve for the model dynamics (using 1st order perturbation)
+  Step.3 calculate impulse responses
+%}
 
 clear all; clc;
 global n indx nodes Grid
@@ -35,12 +50,12 @@ betta = exp(betta_sol);
 stst = [coeff_stst; distr_stst; ...
         log([C_stst; Inv_stst; K_stst; R_stst; Y_stst; 1])];
 
-%% 2) solve for the model dynamics (using 1st order perturbation)
+%% Step.2 solve for the model dynamics (using 1st order perturbation)
 % i.e. obtain the state-space: x(t) = G1*x(t-1) + impact*eps(t);
 doAutDiff = 0;  % choose whether to use automatic differentiation
 [G1,C,impact] = linear_solution(@model_equations,stst,indx,doAutDiff);
 
-%% 3) calculate impulse responses
+%% Step.3 calculate impulse responses
 horizonmax   = 40;
 scale_shocks = ones(n.Shocks,1);
 scale_y      = ones(n.Var,1);
@@ -52,7 +67,7 @@ Resp_distr = distr_stst + Resp_mat(indx.current(n.Agents+1:2*n.Agents),:)/100;
 % retain only rows of aggregate variables
 Resp_mat = Resp_mat(indx.AggVar(1:n.Aggr),:);
 
-%% Display results, figures, etc.
+%% Report the results
 
 % Plot steady state distribution
 figure(1)
@@ -82,6 +97,3 @@ for ishock=1:n.Shocks
     axis([-0.5 horizonmax -Inf Inf]);
     axis 'auto y';
 end
-
-
-

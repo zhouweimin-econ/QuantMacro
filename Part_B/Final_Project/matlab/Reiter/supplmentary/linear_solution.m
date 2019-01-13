@@ -1,21 +1,26 @@
-% Function to solve the model using a first-order perturbation 
-% using the gensys algorithm (by C. Sims)
-%
-% Inputs:
-%    - funcname: name of the function containing the model equations
-%    - stst:     vector with steady state values of endogeneous variables
-%                (must be in the same order as in the model equations file)
-%    - indx:     structure containing indices of position of variables
-%                 (current, lag, iid shocks, expectation errors)
-%    - doAutoDiff: 1 = use Automatic Differentiation (fast and accurate, require AutoDiff toolbox) 
-%                  0 = use Numerical Differentiation (slow and less accurate, require file jacob.m)
-%    - varargin: possibly other inputs for the model equations
-% 
-% Outputs: the State-Space Form  x(t) = C + G1*x(t-1) + impact*eps(t); 
-%    - C:       vector of constants
-%    - G1:      response to endogenous variables 
-%    - impact:  response to exogenous shocks (iid innovation)
-
+%{
+ Final Project of Part B Quantitative Macroeconomics, UAB
+ Weimin Zhou
+ Jan, 2019
+ codes modification based on Github Resources (mentioned in my readme.md):
+ Descriptions:
+  Step.2 solve the dynamics by a 1st-order perturbation using the gensys algorithm (by C. Sims)
+ 
+ Inputs:
+    - funcname: name of the function containing the model equations
+    - stst:     vector with steady state values of endogeneous variables
+                (must be in the same order as in the model equations file)
+    - indx:     structure containing indices of position of variables
+                 (current, lag, iid shocks, expectation errors)
+    - doAutoDiff = 1: Automatic Diff, require AutoDiff toolbox
+                 = 0: Numerical Diff, jacob.m
+    - varargin: possibly other inputs for the model equations
+ 
+ Outputs: the State-Space Form  x(t) = C + G1*x(t-1) + impact*eps(t); 
+    - C:       vector of constants
+    - G1:      response to endogenous variables 
+    - impact:  response to exogenous shocks (iid innovation)
+%}
 function [Gx,CONSTANT,IMPACT]=linear_solution(funcname,stst,indx, doAutoDiff)
 
 % 1) Check that equations are satisfied at steady state
