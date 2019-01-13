@@ -1,5 +1,5 @@
 function [P, y, x, MVndx, Moments0, p0] = tauchen(F, F0, Sigma, Ns, bandwidth)
-% function [P, y, x, MVndx, Moments0, p0] = tauchen(F, F0, Sigma, Ns, bandwidth)
+
 % convert VAR(1) for y into Markov-Chain using Tauchen's method
 % cool: Y can have arbitrary dimension!
 % Y_t = F0 + F Y_{t-1} + e_t and E e_t e_t' = Sigma

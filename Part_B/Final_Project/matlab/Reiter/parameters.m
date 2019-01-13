@@ -6,7 +6,7 @@ global betta alf sig delta Zbar rhoz sigma_epsz TransMat_IdShock amin amax
 
 n.I      = 100;  % points for asset distribution
 n.S      = 2;    % idiosyncratic shock
-n.Aggr   = 6;    % aggregate states 
+n.Aggr   = 6;    % aggregate states (c, inv, k, y, z, R)
 n.Shocks = 1;    % aggregate shocks 
 
 n.ExpErr = n.I*n.S; % number of equations with expectations 
