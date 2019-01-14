@@ -153,6 +153,12 @@ Now, by ``histogram'' the density function, aggregate endogenous variable $x_t$ 
 
 \subsection{Winberry's Algorithm}
 
+The Latest development is from Winberry (2018) \cite{winberry2018method}, based on Algan et al. (2008)\cite{algan2008solving}, who solve the Krusell and Smith (1998)\cite{krusell1998income} model by parameterizing the distribution of households, and solve for the aggregate dynamics with globally accurate methods, which are extremely slow in their context; and Reiter (2009)\cite{reiter2009solving} who solves the KS model using a mixture of globally and locally accurate techniques. However, he approximates the distribution with histogram, which requires many parameters to achieve acceptable accuracy. This limits the approach to problems which have a low dimensional individual state space because the size of the histogram grows exponentially in the number of individual states.
+
+The main challenge is that the state vector contains the distribution of microeconomic agents, which is typically infinite-dimensional. However, Winberry (2018) \cite{winberry2018method}approximates the distribution with a flexible parametric family, reducing the dimensionality to a finite set of parameters, and solve for the dynamics of these parameters by perturbation.
+
+In my repository, I attach his user guide of the Dynare codes for solving KS model. In the coming days, I will learn about this method.
+
 \newpage
 
 
