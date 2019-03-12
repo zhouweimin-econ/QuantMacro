@@ -32,13 +32,54 @@ Part B accesses to Krusell and Smith (1998) model (Heterogenous agents, incomple
 
 ### 1. conventional Value Function Iteration (VFI) and Policy Function Iteration (PFI)
 
-VFI and PFI is well-known, the basic algorithms of dynamic programming.
-   
+VFI and PFI is the well-known basic algorithms of dynamic programming.
+
+For **Discretization**, we practiced evenly-spaced grids, chebyshev polynomials (finer grids yield better approximations but are costly in terms of computer time, [for algorithm containing numerical optimization and root-finding, Matlab performs worse than Python and Julia](https://web.stanford.edu/~maliars/Files/Files/CEPR-DP13210.pdf))
+
+In our course, VFI and PFI are implemented by brute-force iteration of value function given discrete state space. Similar way could calculate decision variable by fminbnd (i.e. kp = fminbnd(@valfun,kmin,kmax); ), where since  “fminbnd”  assumes  a  continuous  choice  set, basically it will search over all values of kp between “kmin” and “kmax”, which will include points not in the original capital grid. For this reason, we need to interpolate values of the value function off of the grid. (i.e. g = interp1(kmat,v0,k,'linear'); val= utility(c) + beta*g;):
+```
+while dif>tol & its<maxits
+   for i = 1:N
+      k0 = kmat(i,1);
+      k1 = fminbnd(@valfun,kmin,kmax);
+      v1(i,1) =−valfun(k1);
+      k11(i,1) = k1;
+   end
+   dif = norm(v1−v0);
+   v0 = v1;
+   its = its+1
+end
+
+for i = 1:N
+   con(i,1) = kmat(i,1)ˆ(alpha)−k11(i,1) + (1−∆)*kmat(i,1);
+   polfun(i,1) = kmat(i,1)ˆ(alpha)−k11(i,1) + (1−∆)*kmat(i,1);
+end
+```
+
+Where the value function for a neoclassical growth model with no uncertainty and CRRA utility are calculated by interpolation. 
+
+```
+function val=valfun(k)
+
+global v0 beta ∆ alpha kmat k0 s
+
+g = interp1(kmat,v0,k,'linear'); % smooths out previous value function
+
+c = k0ˆalpha−k + (1−∆)*k0;       % consumption
+if c≤0
+   val =−9999−999*abs(c); % keeps it from going negative
+else
+   val=(1/(1−s))*(cˆ(1−s)−1) + beta*g;
+end
+
+val = −val; % make it negative since we're maximizing and code is to minimize.
+```
+
 eg.1: See [Part_A/PS4-solution](https://github.com/zhouweimin233/QuantMacro/tree/master/Part_A/PS4-solution) where we practiced VFI and PFI using a couple of improvements to speed up (e.g., concavity of value function, previous solution, monotonicity of decision rules).
 
 eg.2: See [Part_B/PS1-solution/main.m](https://github.com/zhouweimin233/QuantMacro/blob/master/Part_B/PS1-solution/main.m), which I use VFI associated with KS algorithm for solving Krusell and Smith model (~300 minutes MATLAB). 
 
-For **Discretization**, we practiced evenly-spaced grids, chebyshev polynomials (finer grids yield better approximations but are costly in terms of computer time, [for algorithm containing numerical optimization and root-finding, Matlab performs worse than Python and Julia](https://web.stanford.edu/~maliars/Files/Files/CEPR-DP13210.pdf))
+
 
 **Costs and benefits of VFI and PFI**: simple and have a solution for sure, but slow and inaccurate.
 
